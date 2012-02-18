@@ -3,7 +3,8 @@ Geonews::Application.routes.draw do
 	match 'list' => 'Application#list'
 	match 'intro' => 'Application#intro'
 	match 'main' => 'Application#main'
-	match 'places' => 'Application#places'
+  match 'places' => 'Application#places'
+  match 'showmap' => 'Application#showmap'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

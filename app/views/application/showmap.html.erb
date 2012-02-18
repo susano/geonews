@@ -1,0 +1,22 @@
+
+tweets from your location:
+
+<% @tweets.size.times do |i| %>
+	<p><%= @tweets[i].text %></p>
+	
+	<% if @tweets[i].respond_to?('coordinates') %>
+		<p>!!!!!Yay a location!!!!: <%= @tweets[i].coordinates %></p>
+	<% end %>
+<% end %>
+
+Fix my street:
+
+<% @fixmystreet.size.times do |i| %>
+	<p><%= @fixmystreet[i].title %></p>
+	<p><%= @fixmystreet[i].geo %></p>	
+<% end %>
+
+    
+<!-- @map.div -->
+
+<div id="map_canvas" style="width:100%; height:100%"></div>
