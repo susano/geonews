@@ -9,11 +9,13 @@ class ApplicationController < ActionController::Base
   			config.oauth_token = '160344744-RBMzDurTvkepdZNYECjWUvsJuNB9Y2E4RHqwpqe5'
   			config.oauth_token_secret = 'iGCOcwGTh6uiOjLIW2pKKMgEGR1KUQKRp4U9szMryFU'
 		end
-  	end
+	end
 
 	def list
 		@tweets = Twitter.user_timeline("@Launch48")
+
 	end
+
 	
 	def places
 		@places = Twitter.places_nearby(:ip => "144.82.250.184")

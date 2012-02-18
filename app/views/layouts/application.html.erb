@@ -14,16 +14,31 @@
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGdtL_VrP1nETaHipA2FdeDtu_OPI7V4c&sensor=false">
     </script>
     <script type="text/javascript">
+      var lat = ''
+      var lng = ''
+
       function initialize() {
-        var myOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"),
-            myOptions);
+        if (lat != '' && lng != '') {
+          var myOptions = {
+            center: new google.maps.LatLng(lat, lng),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          var map = new google.maps.Map(document.getElementById("map_canvas"),
+              myOptions);
       }
+      }
+        
+        navigator.geolocation.getCurrentPosition(GetLocation);
+    
+    function GetLocation(location) {
+        lat = location.coords.latitude;
+        lng = location.coords.longitude;
+        initialize();
+    }
+
     </script>
+
 </head>
 <body>
 
