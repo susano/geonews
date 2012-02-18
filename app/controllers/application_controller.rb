@@ -17,8 +17,17 @@ class ApplicationController < ActionController::Base
 
 	end
 
+
+	def places2
+		geo
+		@tweets = Twitter.search(
+			'people',
+			:geocode => geo,
+			:rpp => 1)
+	end
 	
 	def places
+		# can use query:<postcode>
 		@places = Twitter.places_nearby(:ip => "144.82.250.184")
 		if @places.length
 			@tweets = Twitter.search(
@@ -27,6 +36,15 @@ class ApplicationController < ActionController::Base
 				:rpp => 1)
 		end
 	end
+
+	def showmap
+		 ady = params['address']
+		 puts "searching: "+ady
+
+		 @tweets = Twitter.search(
+		 	'people',
+		 	query:ady)
+	end		 	
 
 	def intro
 		# TODO
