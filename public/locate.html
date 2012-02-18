@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GeoNews Static page</title>
+    <script>
+	    navigator.geolocation.getCurrentPosition(GetLocation);
+		function GetLocation(location) {
+		    alert("you live at: " + location.coords.latitude + " "+location.coords.longitude+ " " +location.coords.accuracy);
+		}
+		GetLocation();
+	</script>
+
+  </head>
+
+	<body>
+		GeoNews - sample of getting a user's location 
+	</body>
+</html>
