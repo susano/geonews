@@ -9,4 +9,14 @@ tweets from your location:
 	<% end %>
 <% end %>
 
+Fix my street:
 
+<% @fixmystreet.size.times do |i| %>
+	<p><%= @fixmystreet[i].title %></p>
+	<p><%= @fixmystreet[i].geo %></p>	
+<% end %>
+
+    
+<!-- @map.div -->
+
+<div id="map_canvas" style="width:100%; height:100%"></div>
