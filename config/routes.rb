@@ -1,5 +1,7 @@
 Geonews::Application.routes.draw do
 	match 'list' => 'Application#list'
+	match 'intro' => 'Application#intro'
+	match 'main' => 'Application#main'
 	match 'places' => 'Application#places'
 
   # The priority is based upon order of creation:
