@@ -2,6 +2,10 @@
 BLAH BLAH BLAH
 <% @tweets.size.times do |i| %>
 	<p><%= @tweets[i].text %></p>
+	
+	<% if @tweets[i].respond_to?('coordinates') %>
+		<p><%= @tweets[i].coordinates %></p>
+	<% end %>
 <% end %>
 
 
