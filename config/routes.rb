@@ -1,4 +1,6 @@
 Geonews::Application.routes.draw do
+	match 'list' => 'Application#list'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
