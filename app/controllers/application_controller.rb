@@ -6,5 +6,13 @@ class ApplicationController < ActionController::Base
 	def list
 		@tweets = Twitter.user_timeline("@Launch48")
 	end
+
+	def intro
+		# TODO
+	end
+
+	def main
+		# TODO
+	end
 end
 
