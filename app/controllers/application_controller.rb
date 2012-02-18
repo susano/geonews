@@ -2,14 +2,15 @@ require 'twitter'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  	def after_initialize
-  		Twitter.configure do |config|
-  			config.consumer_key = 'AC34dB3nkzpLrJy3T4w'
-			config.consumer_secret = 'h1zbWL0jJxksPqrAPUuft0H8RvD1SrYkxX3pLcqv7c'
-  			config.oauth_token = '60975184-z121haiBlffAnXF30BeB2LYWZ9Uhn22rNR8DE5vvs'
-  			config.oauth_token_secret = 'oxoCZSe4hbpSyTiy4WrhYhyVRCIgnoqtOXmmznnwNaA'
+
+	def after_initialize
+		Twitter.configure do |config|
+			config.consumer_key       = 'EGqdOAkoapvXWxtOpAf3Bg'
+			config.consumer_secret    = 'IoaNO6sPKOqKPE5uj7AFcVQE9L40RjrKXIaQBDEOqM'
+			config.oauth_token        = '160344744-RBMzDurTvkepdZNYECjWUvsJuNB9Y2E4RHqwpqe5'
+			config.oauth_token_secret = 'iGCOcwGTh6uiOjLIW2pKKMgEGR1KUQKRp4U9szMryFU'
 		end
-  	end
+	end
 
 	def list
 		@tweets = Twitter.user_timeline("@Launch48")

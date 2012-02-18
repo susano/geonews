@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#my db config:
+config/database.yaml
+config/database.yml
+

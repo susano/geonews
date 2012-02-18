@@ -9,7 +9,7 @@ development:
   database: geonews
   pool: 5
   username: postgres
-  password: 
+  password: 2641zz
   host: localhost
   port: 5432
 
@@ -22,7 +22,7 @@ test:
   database: geonews
   pool: 5
   username: postgres
-  password: 
+  password: 2641zz
   host: localhost
   port: 5432
 
@@ -32,7 +32,7 @@ production:
   database: geonews
   pool: 5
   username: postgres
-  password:
+  password: 2641zz
   host: localhost
   port: 5432
 
