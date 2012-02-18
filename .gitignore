@@ -15,6 +15,5 @@
 /tmp
 
 #my db config:
-config/database.yaml
-config/database.yml
+/config/database.yml
 
