@@ -2,7 +2,7 @@ require 'twitter'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  	def initialize
+  	def after_initialize
   		Twitter.configure do |config|
   			config.consumer_key = 'EGqdOAkoapvXWxtOpAf3Bg'
 			config.consumer_secret = 'IoaNO6sPKOqKPE5uj7AFcVQE9L40RjrKXIaQBDEOqM'
