@@ -2,7 +2,9 @@
 <html>
 <head>
   <title>Geonews</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application" %>
+	<%= (@in_intro) ? stylesheet_link_tag("intro") : '' %>
+		
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGdtL_VrP1nETaHipA2FdeDtu_OPI7V4c&sensor=false"></script>
@@ -55,6 +57,7 @@
     }
 
     </script>
+
 
 </head>
 <body>

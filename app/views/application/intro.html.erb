@@ -1,10 +1,7 @@
-<%= render :partial => 'locate' %>
-
-<p>
+<div id="searchbox">
 	<form action='showmap' method='POST'>
-		Hello!<br/><br/>
-		Please Enter your neighbourhood: <br/>
-		<input type='text' name='address' id ='address' ><br/>
-		<input type='submit' name='Go!'>
+		<input type='text' name='address' class="cleardefault" value="enter your postcode" id ='address' width='300px'>
+		<input type='submit' value='Go!' name='Go!' id="gobutton">
 	</form>
-</p>
+</div>
+

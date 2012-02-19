@@ -67,6 +67,7 @@ class ApplicationController < ActionController::Base
 	end		 	
 
 	def intro
+		@in_intro = true
 		# TODO
 	end
 
