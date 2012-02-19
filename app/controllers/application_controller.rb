@@ -65,6 +65,10 @@ class ApplicationController < ActionController::Base
 		end
 		@fixmystreet = feed.entries
 
+		
+		@lat = location.latitude.to_s
+		@lng = location.longitude.to_s
+
 		@tweets = ''
 		# @tweets = Twitter.search(
 		#  	'people',

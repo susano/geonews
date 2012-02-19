@@ -29,7 +29,10 @@
         }
       }
         
+      function locateMe() {
         navigator.geolocation.getCurrentPosition(GetLocation);
+      }
+
     
     function GetLocation(location) {
         lat = location.coords.latitude;
