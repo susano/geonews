@@ -1,4 +1,5 @@
 Geonews::Application.routes.draw do
+	match '' => 'Application#intro'
 	match 'list' => 'Application#list'
   match 'intro' => 'Application#intro'
   match '' => 'Application#intro'

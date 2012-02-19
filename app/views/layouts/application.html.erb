@@ -5,14 +5,11 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-	<style type="text/css">
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGdtL_VrP1nETaHipA2FdeDtu_OPI7V4c&sensor=false"></script>
+    <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
-      #map_canvas { height: 100% }
     </style>
-    <script type="text/javascript"
-      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGdtL_VrP1nETaHipA2FdeDtu_OPI7V4c&sensor=false">
-    </script>
     <script type="text/javascript">
       var lat = ''
       var lng = ''
@@ -55,7 +52,6 @@
     }
 
     </script>
-
 
 </head>
 <body>
