@@ -5,17 +5,19 @@
 <image src="assets/header.png" />
 </div>
 
-<div id = 'sidebar'  style="width:200px; height:75%;  background-color:red; float:left; margin: 0; padding: 0;" >
+<div id = 'main_sidebar'  style="width:340px; height:75%; float:left; margin: 0; padding: 0;" >
 
-		<div id = "search box" style="height:50; background-color:green;  margin: 0; padding: 0;">
+		<div id = "search box" style="height:50; background-color:black;  margin: 0; padding: 0;">
 			<form action='showmap' method='POST'>
-				Your neighbourhood:
+				<font class='neighbourhood'>Your area:</font>
 				<input type='text' name='address' id ='address' >
 				<input type='submit' name='Go!' value='Go'>
 			</form>
 		</div>
-		<div id ="tweet_box" ></div>
 
+		<div id ="tweet_box"  style="margin: 0; padding: 0;  width:320px;" >
+			<%= render :partial => 'tweet_bar' %>
+		</div>
 </div>
 
 <div id="map_canvas" style="width:50%; height:50%; margin: 0; padding: 0;"></div>
