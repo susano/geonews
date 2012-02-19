@@ -47,3 +47,11 @@ function Event(title, latitude, longitude)
         longitude: longitude
     };
 }
+
+function addInfoWindow(map, marker, event)
+{
+    var infoWindow = new google.maps.InfoWindow({
+        content: event.title
+    });
+    infoWindow.open(map, marker);
+}

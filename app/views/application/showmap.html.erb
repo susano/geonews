@@ -42,16 +42,15 @@ var infobox = new Array();
                           <%= @tweets[i][:location][:latitude] %>,
                           <%= @tweets[i][:location][:longitude] %>));
     markers.push(new pinTweet(map, events[events.length - 1]));
+    var j = markers.length - 1;
 <% end %>
 
-for (var i = 0; i < markers.length; i++)
-{
-    var event = events[i];
-    google.maps.event.addListener(markers[i], 'click', function(event) {
-        alert(event.title);
-//        infowindow.open(map, marker);
+google.maps.event.addListener(markers[71], 'click', function() {
+    var infoWindow = new google.maps.InfoWindow({
+        content: "<p>" + events[51].title + "</p>Comment: <input />" 
     });
-}
+    infoWindow.open(map, markers[71]);
+});
 
 resizeMap();
 
