@@ -9,13 +9,12 @@ function init_map(htmlElem, latitude, longitude)
         });
 }
 
-function EventPin(map, event, icon_file)
+function pinEvent(map, event, icon_file)
 {
     var coord = new google.maps.LatLng(
         event.location.latitude,
         event.location.longitude);
-    
-    this.marker = icon_file == undefined
+    return icon_file == undefined
         ? new google.maps.Marker({
                 position: coord,
                 map: map,
@@ -30,14 +29,14 @@ function EventPin(map, event, icon_file)
           });
 }
 
-function FixMyStreetPin(map, event)
+function pinFixMyStreet(map, event)
 {
-    EventPin(map, event, 'http://lecatr.people.wm.edu/redstar.gif');
+    return pinEvent(map, event, 'marker.gif');
 }
 
-function TweetPin(map, event)
+function pinTweet(map, event)
 {
-    EventPin(map, event);
+    return pinEvent(map, event, 'tweetmarker.png');
 }
 
 function Event(title, latitude, longitude)

@@ -25,23 +25,33 @@ var map = init_map("map_canvas",
                    <%= @location.latitude %>,
                    <%= @location.longitude %>);
 
+var events  = new Array();
 var markers = new Array();
-<% @tweets.size.times do |i| %>
-    markers.push(new TweetPin(
-                    map,
-                    new Event("<%= @tweets[i][:title] %>",
-                              <%= @tweets[i][:location][:latitude] %>,
-                              <%= @tweets[i][:location][:longitude] %>)));
-<% end %>
+var infobox = new Array();
 
 <% @fixmystreet.size.times do |i| %>
 	<% coord = @fixmystreet[i].geo.split(' ') %>
-	markers.push(new FixMyStreetPin(
-                    map,
-                    new Event("<%= @fixmystreet[i].title %>",
-                              <%= coord[0] %>,
-                              <%= coord[1] %>)));
+	events.push(new Event("<%= @fixmystreet[i].title %>",
+                          <%= coord[0] %>,
+                          <%= coord[1] %>));
+	markers.push(new pinFixMyStreet(map, events[events.length - 1]));
 <% end %>
+
+<% @tweets.size.times do |i| %>
+    events.push(new Event("<%= @tweets[i][:title] %>",
+                          <%= @tweets[i][:location][:latitude] %>,
+                          <%= @tweets[i][:location][:longitude] %>));
+    markers.push(new pinTweet(map, events[events.length - 1]));
+<% end %>
+
+for (var i = 0; i < markers.length; i++)
+{
+    var event = events[i];
+    google.maps.event.addListener(markers[i], 'click', function(event) {
+        alert(event.title);
+//        infowindow.open(map, marker);
+    });
+}
 
 resizeMap();
 
