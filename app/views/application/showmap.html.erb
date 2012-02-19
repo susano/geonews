@@ -1,22 +1,16 @@
 
-tweets from your location:
+<div id="map_canvas" style="width:100%; height:100%"></div>
 
-<% @tweets.size.times do |i| %>
-	<p><%= @tweets[i].text %></p>
-	
-	<% if @tweets[i].respond_to?('coordinates') %>
-		<p>!!!!!Yay a location!!!!: <%= @tweets[i].coordinates %></p>
-	<% end %>
-<% end %>
-
-Fix my street:
+<script>
+var map = init_map("map_canvas",
+                   <%= @location.latitude %>,
+                   <%= @location.longitude %>);
 
 <% @fixmystreet.size.times do |i| %>
-	<p><%= @fixmystreet[i].title %></p>
-	<p><%= @fixmystreet[i].geo %></p>	
+	<% coord = @fixmystreet[i].geo.split(' ') %>
+    pin_event(map,
+              new Event("<%= @fixmystreet[i].title %>",
+                        <%= coord[0] %>,
+                        <%= coord[1] %>));
 <% end %>
-
-    
-<!-- @map.div -->
-
-<div id="map_canvas" style="width:100%; height:100%"></div>
+</script>

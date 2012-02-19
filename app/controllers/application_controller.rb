@@ -2,7 +2,6 @@ require 'twitter'
 require 'graticule'
 require 'feedzirra'
 
-
 class ApplicationController < ActionController::Base
   protect_from_forgery
   	def after_initialize
@@ -16,7 +15,6 @@ class ApplicationController < ActionController::Base
 
 	def list
 		@tweets = Twitter.user_timeline("@Launch48")
-
 	end
 
 
@@ -46,11 +44,10 @@ class ApplicationController < ActionController::Base
  		fixmystreet_url = "http://www.fixmystreet.com/rss/l/"
 
 		geocoder = Graticule.service(:google).new "AIzaSyDGdtL_VrP1nETaHipA2FdeDtu_OPI7V4c"
-		location = geocoder.locate ady
+		@location = geocoder.locate ady
 
-		request_url = fixmystreet_url + location.latitude.to_s + "," + location.longitude.to_s
+		request_url = fixmystreet_url + @location.latitude.to_s + "," + @location.longitude.to_s
 		puts "Loading: "+request_url
-
 
 		# We rename 'georss:point' as 'geo' so we can read it otherwise it is ignored
 		Feedzirra::Feed.add_common_feed_entry_element("georss:point", :as => :geo)
