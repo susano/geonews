@@ -10,6 +10,49 @@
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
     </style>
+    <script type="text/javascript">
+      var lat = ''
+      var lng = ''
+
+      function initialize() {
+        if (lat == '' && lng == '') {
+          return;
+        }
+        var myOptions = {
+            center: new google.maps.LatLng(lat, lng),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        resizeMap();
+      }
+      
+      function resizeMap() {
+        if (document.getElementById('map_canvas') != null) {
+          var w = document.documentElement.clientWidth;
+          var h = document.documentElement.clientHeight;
+
+          if (document.getElementById('sidebar') != null) {
+            var sideWidth = document.getElementById('sidebar').clientWidth;
+
+            document.getElementById('map_canvas').style.width = (w - sideWidth) + 'px';
+          }
+        }
+      };
+
+      function locateMe() {
+        navigator.geolocation.getCurrentPosition(GetLocation);
+      }
+
+    
+    function GetLocation(location) {
+        lat = location.coords.latitude;
+        lng = location.coords.longitude;
+        initialize();
+    }
+
+    </script>
+
 </head>
 <body>
 
