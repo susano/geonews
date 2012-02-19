@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
 
 	def showmap
 		ady = params['address']
-		puts "using this address: "+ady
+		puts "using this address: "+(ady||'')
  		
  		fixmystreet_url = "http://www.fixmystreet.com/rss/l/"
 
@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
 		end
 		@fixmystreet = feed.entries
 
-		@tweets = ''
+		@tweets = ApplicationHelper::TWEET_EVENTS
 		# @tweets = Twitter.search(
 		#  	'people',
 		#  	query:ady)
