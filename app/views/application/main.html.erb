@@ -3,12 +3,18 @@
 <%= render :partial => 'locate' %>
 
 <div id='lists'>
-****TODO tab of Lists of the items****
-</div>
--->
+</div> 
 
-<div id="map_canvas" style="width:100%; height:100%"></div>
+<div id="header" style="width:100%; height:10%; background-color:blue"> 
+our wonderful header 
+</div>
+
+<div id ="tweet_box"  style="width:20%; height:90%; background-color:red; float:left" ></div>
+
+<div id="map_canvas" style="width:80%; height:90%"></div>
 
 <script>
-init_map("map_canvas", -25.363882, 131.044922);
+lat = 51.5; //@lat
+lng = 0.1; //@lng
+initialize();
 </script>
