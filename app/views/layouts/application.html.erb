@@ -27,9 +27,22 @@
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-        
+        resizeMap();
       }
-        
+      
+      function resizeMap() {
+        if (document.getElementById('map_canvas') != null) {
+          var w = document.documentElement.clientWidth;
+          var h = document.documentElement.clientHeight;
+
+          if (document.getElementById('sidebar') != null) {
+            var sideWidth = document.getElementById('sidebar').clientWidth;
+
+            document.getElementById('map_canvas').style.width = (w - sideWidth) + 'px';
+          }
+        }
+      };
+
       function locateMe() {
         navigator.geolocation.getCurrentPosition(GetLocation);
       }
