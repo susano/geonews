@@ -32,10 +32,13 @@
           var w = document.documentElement.clientWidth;
           var h = document.documentElement.clientHeight;
 
-          if (document.getElementById('sidebar') != null) {
-            var sideWidth = document.getElementById('sidebar').clientWidth;
-
-            document.getElementById('map_canvas').style.width = (w - sideWidth) + 'px';
+          if (document.getElementById('header') != null && document.getElementById('sidebar') != null) {
+            var sideWidth = document.getElementById('sidebar').clientWidth ;
+            var headerHeight = document.getElementById('header').clientHeight ;
+            
+            document.getElementById('sidebar').style.height = (h - headerHeight) + 'px';
+            document.getElementById('map_canvas').style.width =  (w - sideWidth) + 'px';
+            document.getElementById('map_canvas').style.height =  (h - headerHeight) + 'px';            
           }
         }
       };
