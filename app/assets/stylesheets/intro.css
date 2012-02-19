@@ -1,0 +1,55 @@
+
+#body { font: 62.5% Arial; line-height: 1;
+
+	background-image:url('frontpage-1.png');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position:center;
+}
+#input, #textarea { font-family: Arial; font-size: 125%; padding: 7px; }
+#label { display: block; } 
+#p { margin: 0; margin-bottom: 4px;}
+#h5 { margin: 0; font-weight: normal; }
+#a:link,
+#a:hover,
+#a:visited {
+    color: #fff;
+}
+
+
+
+
+	
+#address_into {
+	font:normal 3em arial;
+	color:grey;
+	border-radius:1em;
+	padding-left:0.5em;
+	
+}
+
+#searchbox {
+	position:relative;
+	z-index:10;
+	margin-left: auto;
+	margin-right: auto;
+	width:45em;
+	bottom:-500px;
+}
+
+#address {
+	height:1.2em;
+	
+
+}
+
+#gobutton {
+	font-size:3em;
+	padding:0.2em;
+	background:white;
+	color:rgb(24,116,205);
+	border-radius:1em;
+	height: 2em;
+	width:2em;
+	
+}
