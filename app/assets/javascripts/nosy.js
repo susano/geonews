@@ -4,21 +4,40 @@ function init_map(htmlElem, latitude, longitude)
         document.getElementById(htmlElem),
         {
             center: new google.maps.LatLng(latitude, longitude),
-            zoom: 14,
+            zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 }
 
-function pin_event(map, event)
+function EventPin(map, event, icon_file)
 {
     var coord = new google.maps.LatLng(
         event.location.latitude,
         event.location.longitude);
-    var marker = new google.maps.Marker({
-        position: coord,
-        map: map,
-        title: event.title
-    });
+    
+    this.marker = icon_file == undefined
+        ? new google.maps.Marker({
+                position: coord,
+                map: map,
+                title: event.title
+          })
+        : new google.maps.Marker({
+                position: coord,
+                map: map,
+                title: event.title,
+                icon: icon_file,
+                optimized: false // To enable gif animation
+          });
+}
+
+function FixMyStreetPin(map, event)
+{
+    EventPin(map, event, 'http://lecatr.people.wm.edu/redstar.gif');
+}
+
+function TweetPin(map, event)
+{
+    EventPin(map, event);
 }
 
 function Event(title, latitude, longitude)

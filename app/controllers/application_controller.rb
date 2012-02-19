@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
 		@tweets = Twitter.user_timeline("@Launch48")
 	end
 
-
 	def places2
 		geo
 		@tweets = Twitter.search(

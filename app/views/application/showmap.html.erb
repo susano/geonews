@@ -5,11 +5,22 @@ var map = init_map("map_canvas",
                    <%= @location.latitude %>,
                    <%= @location.longitude %>);
 
+var markers = new Array();
+<% @tweets.size.times do |i| %>
+    markers.push(new TweetPin(
+                    map,
+                    new Event("<%= @tweets[i][:title] %>",
+                              <%= @tweets[i][:location][:latitude] %>,
+                              <%= @tweets[i][:location][:longitude] %>)));
+<% end %>
+
 <% @fixmystreet.size.times do |i| %>
 	<% coord = @fixmystreet[i].geo.split(' ') %>
-    pin_event(map,
-              new Event("<%= @fixmystreet[i].title %>",
-                        <%= coord[0] %>,
-                        <%= coord[1] %>));
+	markers.push(new FixMyStreetPin(
+                    map,
+                    new Event("<%= @fixmystreet[i].title %>",
+                              <%= coord[0] %>,
+                              <%= coord[1] %>)));
 <% end %>
+
 </script>
