@@ -48,10 +48,12 @@ function Event(title, latitude, longitude)
     };
 }
 
-function addInfoWindow(map, marker, event)
+function makeInfoWindow(map, marker, event)
 {
     var infoWindow = new google.maps.InfoWindow({
         content: event.title
     });
-    infoWindow.open(map, marker);
+    return function() {
+	infoWindow.open(map, marker);
+    };
 }

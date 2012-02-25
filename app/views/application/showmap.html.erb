@@ -27,14 +27,13 @@ var map = init_map("map_canvas",
 
 var events  = new Array();
 var markers = new Array();
-var infobox = new Array();
 
 <% @fixmystreet.size.times do |i| %>
-	<% coord = @fixmystreet[i].geo.split(' ') %>
-	events.push(new Event("<%= @fixmystreet[i].title %>",
+    <% coord = @fixmystreet[i].geo.split(' ') %>
+    events.push(new Event("<%= @fixmystreet[i].title %>",
                           <%= coord[0] %>,
                           <%= coord[1] %>));
-	markers.push(new pinFixMyStreet(map, events[events.length - 1]));
+    markers.push(new pinFixMyStreet(map, events[events.length - 1]));
 <% end %>
 
 <% @tweets.size.times do |i| %>
@@ -45,12 +44,10 @@ var infobox = new Array();
     var j = markers.length - 1;
 <% end %>
 
-google.maps.event.addListener(markers[71], 'click', function() {
-    var infoWindow = new google.maps.InfoWindow({
-        content: "<p>" + events[51].title + "</p>Comment: <input />" 
-    });
-    infoWindow.open(map, markers[71]);
-});
+for (var i = 0; i < markers.length; i++)
+{
+    google.maps.event.addListener(markers[i], 'click', makeInfoWindow(map, markers[i], events[i]));
+}
 
 resizeMap();
 
